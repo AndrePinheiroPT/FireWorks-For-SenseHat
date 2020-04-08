@@ -1,4 +1,4 @@
-# Firework module
+# Firework Module
 
 Welcome to my work, In this work I built a python module
 to use in your raspberry and SenseHat!
@@ -12,7 +12,7 @@ For you use this module you need:
 If you no have a Raspberry pi or SenseHat, you can use a SenseHat
 emulator for exemple: The trinket
 
-[Thinket](https://trinket.io/sense-hat)
+[Trinket](https://trinket.io/sense-hat)
 
 ## How to use?
 
