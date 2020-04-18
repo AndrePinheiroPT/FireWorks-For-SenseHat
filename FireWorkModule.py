@@ -112,7 +112,6 @@ def fire(color_p=(200, 200, 200),
     head = Axis(x, 7)
     stick = Axis(x, head.y + 1)
     
-    print(type(head))
     for update in range(0, height):
         # Show head of fire
         sense.set_pixel(head.x, head.y, color)
@@ -130,3 +129,4 @@ def fire(color_p=(200, 200, 200),
         sense.clear(background)
         
     explosion(head, color, velocity, background)
+

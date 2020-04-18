@@ -1,38 +1,45 @@
 # Firework Module
 
 Welcome to my work, In this work I built a python module
-to use in your raspberry and SenseHat!
+to use in your __RaspberryPi__ and __SenseHat__!
 
 ## Hardware
 
 For you use this module you need:
-- Raspberry Pi
+- RaspberryPi
 - SenseHat
 
-If you no have a Raspberry pi or SenseHat, you can use a SenseHat
-emulator for exemple: The trinket
-
-[Trinket](https://trinket.io/sense-hat)
+If you don't have a RaspberryPi or SenseHat, you can use a SenseHat
+emulator for exemple: [Trinket](https://trinket.io/sense-hat)
 
 ## How to use?
 
-1. Download the FireWorkModule.py
+1. Download the _FireWorkModule.py_
 2. Add the module in your program
 3. Run :)
 
 ## Command
 
-```python
+```
 import FireWorkModule
 
 FireWorkModule.fire()
-# params:
-# - color;
-# - position;
-# - velocity;
-# - background;
-# - height;
+FireWorkModule.explosion()
 ```
+***
+Params for `FireWorkModule.fire()`
+* Color
+* Position
+* Velocity
+* Background
+* Height
+***
+Params for `FireWorkModule.explosion()`
+* Center
+* Color
+* Time
+* Background
+
 
 ## Contributing
 
