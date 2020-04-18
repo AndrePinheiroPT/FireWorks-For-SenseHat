@@ -19,7 +19,11 @@ class Axis:
         self.y = y
 
 
-def explosion(center, color_ex, time, background_ex):
+def explosion(center='random',
+              color_ex=(200, 200, 200),
+              time=1/5,
+              background_ex=(0, 0, 0)
+              ):
     """
     -> The def makes a explosion of firework after launch
     :param center: the head of firework
@@ -27,11 +31,21 @@ def explosion(center, color_ex, time, background_ex):
     :param time: explosion time
     :param background_ex: background color of SenseHat
     """
+
+    if type(center) is Axis:
+        head = center
+    elif type(center) is list:
+        head = Axis(center[0], center[1])
+    elif center == 'random':
+        x = randint(0, 7)
+        y = randint(0, 7)
+        head = Axis(x, y)
+
     for c in range(1, 3):
-        f_up = Axis(center.x, center.y - c)     
-        f_down = Axis(center.x, center.y + c) 
-        f_left = Axis(center.x - c, center.y) 
-        f_right = Axis(center.x + c, center.y) 
+        f_up = Axis(head.x, head.y - c)     
+        f_down = Axis(head.x, head.y + c) 
+        f_left = Axis(head.x - c, head.y) 
+        f_right = Axis(head.x + c, head.y) 
         
         if f_up.y >= 0:
             sense.set_pixel(
@@ -97,7 +111,8 @@ def fire(color_p=(200, 200, 200),
     # Set head and corp of firework
     head = Axis(x, 7)
     stick = Axis(x, head.y + 1)
-        
+    
+    print(type(head))
     for update in range(0, height):
         # Show head of fire
         sense.set_pixel(head.x, head.y, color)
@@ -115,4 +130,3 @@ def fire(color_p=(200, 200, 200),
         sense.clear(background)
         
     explosion(head, color, velocity, background)
-
