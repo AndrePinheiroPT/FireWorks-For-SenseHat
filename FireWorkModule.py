@@ -17,8 +17,8 @@ class Axis:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-
-
+    
+    
 def explosion(center='random',
               color_ex=(200, 200, 200),
               time=1/5,
@@ -109,24 +109,47 @@ def fire(color_p=(200, 200, 200),
         color = color_p
     
     # Set head and corp of firework
-    head = Axis(x, 7)
-    stick = Axis(x, head.y + 1)
     
-    for update in range(0, height):
-        # Show head of fire
-        sense.set_pixel(head.x, head.y, color)
-        
-        try:
-            sense.set_pixel(stick.x, stick.y, color)
-        except:
-            print('> Show no stick')
-            
-        # Up and update every pixel    
-        head.y -= 1
-        stick.y -= 1
-        
-        sleep(velocity)
-        sense.clear(background)
+    
+    
         
     explosion(head, color, velocity, background)
+    
+def stick(length = 3,
+          color = (200, 200, 200),
+          limit = 'random',
+          ground = 'random',
+          background = (0, 0, 0),
+          velocity = 1 / 5):
+    
+    if limit == 'random':
+        limit = randint(2, 7)
+        
+    if ground == 'random':
+        x = randint(0, 7)
+        head = Axis(x, 7)
+    else:
+        head = Axis(ground, 7)
+        
+    for update in range(0, limit):
+        # Change x axis every update
+        tail = []
+        for y in range(head.y + 1, head.y + length + 1):
+            tail.append(y)
+            
+        # Show head of fire
+        sense.set_pixel(head.x, head.y, color)
+        for part in tail:
+            try:
+                sense.set_pixel(head.x, part, color)
+            except:
+                print('> Show no stick')
+            
+        # Update every pixel    
+        head.y -= 1
+        
+        # Change background every update
+        sleep(velocity)
+        sense.clear(background)
+    
 
