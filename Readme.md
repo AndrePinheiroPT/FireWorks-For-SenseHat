@@ -10,13 +10,17 @@ For you use this module you need:
 - SenseHat
 
 If you don't have a RaspberryPi or SenseHat, you can use a SenseHat
-emulator for exemple: [Trinket](https://trinket.io/sense-hat)
+emulator, for exemple: [Trinket](https://trinket.io/sense-hat)
 
 ## How to use?
 
-1. Download the _FireWorkModule.py_
-2. Add the module in your program
-3. Run :)
+1. You need install 3 modules:
+    1. time
+    2. random
+    3. sensehat
+2. Download the _FireWorkModule.py_
+3. Add the module in your program
+4. Run :)
 
 ## Command
 
@@ -25,20 +29,23 @@ import FireWorkModule
 
 FireWorkModule.fire()
 FireWorkModule.explosion()
+FireWorkModule.stick()
 ```
 ***
-Params for `FireWorkModule.fire()`
+Params for `FireWorkModule.fire()` and `FireWorkModule.stick()`
+* Length
 * Color
-* Position
-* Velocity
+* Limit
+* Ground
 * Background
-* Height
+* Velocity
 ***
 Params for `FireWorkModule.explosion()`
-* Center
+* Point
 * Color
-* Time
+* Velocity
 * Background
+* Length
 
 
 ## Contributing
